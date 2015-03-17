@@ -39,7 +39,7 @@
         Demonstraton of how to eempliment couters, timers, and task queues on Firebase. <br><br>
 
   
-    <button class="btn btn-success" analytics-on="click" analytics-event="Download" ng-click="addCounter(theKey)">
+    <button class="btn btn-success" ng-click="addCounter(theKey)">
         Add Counter
     </button> with the key <input ng-model="theKey" type="input" ng-init="theKey='awesome'">
     <br>
@@ -53,13 +53,13 @@
         <td>{{k}}</td>
         <td>{{v}}</td>
         <td>
-        <button class="btn btn-success" analytics-on="click" analytics-event="Download" ng-click="incrementCounter(k)">
+        <button class="btn btn-success" ng-click="incrementCounter(k)">
             <span class="glyphicon"></span> Increment
         </button>
-        <button class="btn btn-success" analytics-on="click" analytics-event="Download" ng-click="addCounter(k)">
+        <button class="btn btn-success" ng-click="addCounter(k)">
             <span class="glyphicon"></span> Reset
         </button>
-        <button class="btn btn-success" analytics-on="click" analytics-event="Download" ng-click="deleteCounter(k)">
+        <button class="btn btn-success" ng-click="deleteCounter(k)">
             <span class="glyphicon"></span> Delete
         </button>
             </td>
@@ -67,12 +67,12 @@
   </table>
 <hr>
 
-  <button class="btn btn-success" analytics-on="click" analytics-event="Download" ng-click="addTimer(theKey,duration)">
+  <button class="btn btn-success" ng-click="addTimer(theKey,duration)">
         Add Timer
   </button> with the key <input ng-model="theKey" type="input"> and duration 
   <input type="input" ng-model="duration" ng-init="duration=60000"> milliseconds.
     <br>
-  <button class="btn btn-success" analytics-on="click" analytics-event="Download" ng-click="updateCurrentTime()">
+  <button class="btn btn-success" ng-click="updateCurrentTime()">
     <span class="glyphicon"></span> Update Server Time
   </button>
   Refreshed at: {{server.currentTime}}
@@ -107,7 +107,7 @@
     milliseconds for until the counter reaches
     <input ng-model="intervalCounter.target" type="text">.
 
-    <button class="btn btn-success" analytics-on="click" analytics-event="Download" ng-click="updateUntilCounter()">
+    <button class="btn btn-success" ng-click="updateUntilCounter()">
         <span class="glyphicon"></span> Start Updates
     </button><br>
 
@@ -166,10 +166,10 @@
                 </button>
             </li>
         </ol>
-        <button class="btn btn-success" analytics-on="click" analytics-event="Download" ng-click="addTask(k,theCounter)">
+        <button class="btn btn-success" ng-click="addTask(k,theCounter)">
             <span class="glyphicon"></span> Add task
         </button>
-        <button class="btn btn-success" analytics-on="click" analytics-event="Download" ng-click="deleteQueue(k)">
+        <button class="btn btn-success" ng-click="deleteQueue(k)">
             <span class="glyphicon"></span> Delete
         </button>
     </li>
@@ -192,7 +192,7 @@
     is less than
     <input ng-model="intervalCounter.target" type="text">.
 
-    <button class="btn btn-success" analytics-on="click" analytics-event="Download" ng-click="processTasksUntilCounter(intervalCounter.counter,intervalCounter.target,intervalCounter.queue,intervalCounter.interval)">
+    <button class="btn btn-success" ng-click="processTasksUntilCounter(intervalCounter.counter,intervalCounter.target,intervalCounter.queue,intervalCounter.interval)">
         <span class="glyphicon"></span> Start Processing Tasks in Queue 
     </button><br>
 
@@ -202,7 +202,7 @@
   
 <hr>
            
-<button class="btn btn-success" analytics-on="click" analytics-event="Download" ng-click="update_the_chart()">
+<button class="btn btn-success" ng-click="update_the_chart()">
         <span class="glyphicon"></span> Update Chart
 </button><br>
       
@@ -221,7 +221,7 @@
         
 </div> <!-- container -->
 <script>
-  var myApp = angular.module("myApp", ["firebase","chart.js"], ['angulartics', 'angulartics.google.analytics']);
+  var myApp = angular.module("myApp", ["firebase","chart.js"]);
   myApp.controller('userController', ['$scope', '$firebase',
     function($scope, $firebase) {
     $scope.newuser = {};
@@ -466,15 +466,8 @@
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
   
-    ga('create', 'UA-60848261-1', 'auto');
-    module.config(function ($analyticsProvider) {
-      // turn off automatic tracking
-      $analyticsProvider.virtualPageviews(false);
-    });
-    module.controller('SampleCtrl', function ($analytics) {
-        $analytics.pageTrack('/my/url');
-        $analytics.eventTrack('eventName');
-        $analytics.eventTrack('eventName', {  category: 'category', label: 'label' });
+    ga('create', 'UA-32403946-2', 'auto');
+    ga('send', 'pageview');
   </script>
 </body>
 </html>
